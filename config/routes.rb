@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-get "/product", controller: "products", action: "single_product"
+get "/products", controller: "products", action: "all_products"
+get "/first_product", controller: "products", action: "first_product"
 end
