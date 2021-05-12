@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
   
   def show
-    productid_param = params["id"]
-    product = Product.find_by(id:"#{productid_param}")
+    product = Product.find_by(id:"#{params["id"]}")
     render json: product
   end
 
