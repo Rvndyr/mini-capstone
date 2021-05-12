@@ -1,6 +1,5 @@
 class SuppliersController < ApplicationController
   def index
-    supplier_param = params["index"]
     supplier = Supplier.all
     render json: supplier
   end
@@ -9,6 +8,7 @@ class SuppliersController < ApplicationController
     supplier = Supplier.find_by(id:"#{params["id"]}")
     render json: supplier
   end
+
   def create
     products_param = params["create"]
     supplier = Supplier.new(

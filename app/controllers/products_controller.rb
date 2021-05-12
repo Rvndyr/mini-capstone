@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
   end
 
   def index
-    products_param = params["index"]
     product = Product.all
     render json: product
   end
