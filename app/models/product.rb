@@ -11,7 +11,9 @@ class Product < ApplicationRecord
 # end
 
 # ^this could also be written like so: 
-belongs_to :suppliers
+belongs_to :supplier
+
+has_many :images
 
 def is_discounted
   if price < 10
@@ -19,7 +21,6 @@ def is_discounted
   else
     return false
   end
-
 end
 
 def tax 

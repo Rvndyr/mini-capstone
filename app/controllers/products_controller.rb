@@ -15,10 +15,11 @@ class ProductsController < ApplicationController
     product = Product.new(
       name: params[:name], 
       price: params[:price], 
-      img_url: params[:image_url], 
-      description: params[:description]
+      description: params[:description],
+      supplier_id: params[:supplier_id]
       )
       if product.save
+        Image.create(product_id: product.id, url: params[:image_url])
         render json: product
       else
         render json: {errors: product.errors.full_messages }, status: 422
@@ -37,7 +38,6 @@ class ProductsController < ApplicationController
     product = Product.find_by(id:"#{product_param}")
     product.name = params[:name] || product.name
     product.price = params[:price] || product.price
-    product.img_url = params[:image_url] || product.img_url
     product.description = params[:description] || product.description
     if product.save
       render json: product
