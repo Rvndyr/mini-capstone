@@ -11,4 +11,11 @@ get "/suppliers/:id" => "suppliers#show"
 post "/suppliers" => "suppliers#create"
 delete "/suppliers/:id" => "suppliers#delete"
 patch "/suppliers/:id" => "suppliers#update"
+
+# user routes
+post "/users" => "users#create"
+
+# session routes
+post "/sessions" => "sessions#create"
+
 end
